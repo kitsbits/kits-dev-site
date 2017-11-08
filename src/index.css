@@ -3,6 +3,7 @@
     font-family: 'Dosis', sans-serif;
 }
 
-.app-background {
-    
+div,
+body {
+    margin: 0;
 }
