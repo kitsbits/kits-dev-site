@@ -1,26 +1,46 @@
 import React from "react";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom";
+import glamorous from "glamorous";
 
 export default function Navbar() {
-    const containerStyles = {
+    const mediaQueries = {
+        small: "@media screen and (max-width: 991px)"
+    }
+
+    const Container = glamorous.div({
         display: "flex",
         flexWrap: "wrap",
         justifyContent: "space-between",
         alignItems: "center",
-        padding: "0 50px"
-    }
+        padding: "0 50px",
+        [mediaQueries.small]: {
+            padding: "0",
+            height: "335px"
+        }
+    });
 
-    const hiContainerStyles = {
+    const HiContainer = glamorous.div({
         width: "300px",
         padding: "15px",
-        fontSize: "1.35em"
-    }
+        fontSize: "1.35em",
+        [mediaQueries.small]: {
+            position: "absolute",
+            top: "125px",
+            width: "100%",
+            textAlign: "center"
+        }
+    });
 
-    const noMargin = {
+    const HiThere = glamorous.h1({
         margin: "0"
-    }
+    });
 
-    const currentPageContainerStyles = {
+    const ImKit = glamorous.h1({
+        color: "#FF4057",
+        margin: "0"
+    });
+
+    const CurrentPageContainer = glamorous.div({
         height: "250px",
         width: "250px",
         border: "4px solid #FF4057",
@@ -30,22 +50,29 @@ export default function Navbar() {
         justifyContent: "center",
         alignItems: "flex-end",
         color: "white",
-        padding: "50px"
-    }
+        padding: "50px",
+        [mediaQueries.small]: {
+            width: "auto",
+            height: "auto",
+            border: "none",
+            transform: "translateY(115%)",
+            fontSize: "1.5em"
+        }
+    });
 
-    const kitStyles = {
-        color: "#FF4057"
-    }
-
-    const iconContainerStyles = {
-        // alignSelf: "flex-end",
+    const LinkContainer = glamorous.div({
         display: "flex",
         alignItems: "flex-end",
         width: "300px",
-        justifyContent: "space-around"
-    }
+        justifyContent: "space-around",
+        [mediaQueries.small]: {
+            position: "absolute",
+            width: "100%",
+            top: "25px"
+        }
+    });
 
-    const linkStyles = {
+    const NavLink = glamorous.a({
         paddingBottom: "15px",
         borderBottom: "4px solid #FF4057",
         textDecoration: "none",
@@ -53,31 +80,44 @@ export default function Navbar() {
         color: "black",
         fontSize: "1.5em",
         fontWeight: "600",
-        transition: "hover 0.2s ease-in-out"
+        transition: "all 0.2s ease-in-out",
+        ":hover": {
+            color: "#FF4057"
+        }
+    });
+
+    const NavPage = glamorous.span({
+        transition: "all 0.1s ease-in",
+        ":hover": {
+            color: "#FF4057"
+        }
+    })
+
+    const routeNavStyles = {
+        paddingBottom: "15px",
+        borderBottom: "4px solid #FF4057",
+        textDecoration: "none",
+        margin: "0",
+        color: "black",
+        fontSize: "1.5em",
+        fontWeight: "600",
+        transition: "hover 0.1s ease-in"
     }
-
-    const iconStyles = {
-        width: "44px"
-    }
-
-
-    const github = require("./assets/Github-black.png");
-    const linkedIn = require("./assets/LinkedIn-black.png");
 
     return (
-        <div style={containerStyles} className="navbar">
-            <div style={hiContainerStyles}>
-                <h1 style={noMargin}>Hi, there.</h1>
-                <h1 style={{...noMargin, ...kitStyles}}>I'm Kit and I'm a web developer</h1>
-            </div>
-            <div style={currentPageContainerStyles}>
+        <Container>
+            <HiContainer>
+                <HiThere>Hi, there.</HiThere>
+                <ImKit>I'm Kit and I'm a web developer</ImKit>
+            </HiContainer>
+            <CurrentPageContainer>
                 <h1>RECENT PROJECTS</h1>
-            </div>
-            <div style={iconContainerStyles}>
-                <a href="" style={linkStyles}>RES<span style={{display: "block"}}>UME</span></a>
-                <a target="_tab" href="https://github.com/noblepaper" style={linkStyles}><img src={github} alt="Github icon" style={iconStyles}/></a>
-                <a target="_tab" href="https://www.linkedin.com/in/kitmasaracchia/" style={linkStyles}><img src={linkedIn} alt="LinkedIn icon" style={iconStyles}/></a>
-            </div>
-        </div>
+            </CurrentPageContainer>
+            <LinkContainer>
+                <Link to="/" style={routeNavStyles}><NavPage>RES<span style={{display: "block"}}>UME</span></NavPage></Link>
+                <NavLink target="_tab" href="https://github.com/noblepaper"><i className="fa fa-2x fa-github"></i></NavLink>
+                <NavLink target="_tab" href="https://www.linkedin.com/in/kitmasaracchia/"><i className="fa fa-2x fa-linkedin"></i></NavLink>
+            </LinkContainer>
+        </Container>
     )
 }

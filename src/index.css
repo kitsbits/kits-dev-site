@@ -7,13 +7,3 @@ div,
 body {
     margin: 0;
 }
-
-a:hover {
-    color: ##FF4057;
-}
-
-@media screen and (max-width: 949px) {
-    .navbar {
-        flex-direction: column;
-    }
-}
