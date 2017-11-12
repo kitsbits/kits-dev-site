@@ -56,7 +56,7 @@ export default function Navbar() {
             height: "auto",
             border: "none",
             transform: "translateY(115%)",
-            fontSize: "1.5em"
+            fontSize: "1.2em"
         }
     });
 

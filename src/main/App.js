@@ -1,6 +1,8 @@
 import React from "react";
-import Navbar from "./Navbar";
 import glamorous from "glamorous";
+
+import Navbar from "./Navbar";
+import Projects from "./views/projects/Projects";
 
 const backgroundImg = require("./assets/background_main.jpg");
 
@@ -9,7 +11,7 @@ export default function App() {
         background: `url(${backgroundImg}) no-repeat`,
         backgroundPosition: "0 10%",
         width: "100wh",
-        height: "85vh",
+        height: "1500px",
         overflow: "scroll",
         backgroundSize: "cover"
     });
@@ -18,7 +20,7 @@ export default function App() {
         <div>
             <Navbar/>
             <Main>
-
+                <Projects/>
             </Main>
         </div>
     )
