@@ -2,9 +2,23 @@ import React from "react";
 import glamorous from "glamorous";
 
 export default function Header(props) {
+    const mediaQueries = {
+        small: "@media screen and (max-width: 991px)",
+        xsmall: "@media screen and (max-width: 700px)"
+    }
+
     const Container = glamorous.div({
         display: "flex",
-        justifyContent: "space-between"
+        justifyContent: "space-between",
+        margin: "auto",
+        width: "90%",
+        backgroundColor: "white",
+        borderRadius: "2px",
+        boxShadow: "rgba(0, 0, 0, 0.4) 0px 1px 3px inset",
+        padding: "25px 55px",
+        [mediaQueries.small]: {
+            marginTop: "200px"
+        }
     });
 
     const TextContainer = glamorous.div({
@@ -15,7 +29,14 @@ export default function Header(props) {
         display: "flex",
         justifyContent: "space-between",
         width: "150px",
-        marginTop: "25px"
+        marginTop: "25px",
+        marginLeft: "25px",
+        [mediaQueries.xsmall]: {
+            flexDirection: "column",
+            marginTop: "0",
+            marginLeft: "55px",
+            // width: "65px"
+        }
     });
 
     const NavLink = glamorous.a({
@@ -31,7 +52,7 @@ export default function Header(props) {
         transition: "all 0.1s ease-in",
         ":hover": {
             color: "#FF4057"
-        }
+        },
     });
 
 

@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import glamorous from "glamorous";
 
 export default function Navbar() {
+
+    ///// STYLING \\\\\
     const mediaQueries = {
         small: "@media screen and (max-width: 991px)"
     }
@@ -12,7 +14,12 @@ export default function Navbar() {
         flexWrap: "wrap",
         justifyContent: "space-between",
         alignItems: "center",
-        padding: "0 50px",
+        position: "fixed",
+        backgroundColor: "white",
+        width: "100%",
+        height: "200px",
+        transition: "height 1s",
+        zIndex: "1",
         [mediaQueries.small]: {
             padding: "0",
             height: "335px"
@@ -23,6 +30,8 @@ export default function Navbar() {
         width: "300px",
         padding: "15px",
         fontSize: "1.35em",
+        alignSelf: "flex-start",
+        // diplay: "flex",
         [mediaQueries.small]: {
             position: "absolute",
             top: "125px",
@@ -31,6 +40,10 @@ export default function Navbar() {
         }
     });
 
+    const MoveUp = glamorous.div({
+        transition: "transform 1s"
+    })
+
     const HiThere = glamorous.h1({
         margin: "0"
     });
@@ -38,6 +51,17 @@ export default function Navbar() {
     const ImKit = glamorous.h1({
         color: "#FF4057",
         margin: "0"
+    });
+
+    const Kit = glamorous.h1({
+        color: "#FF4057",
+        margin: "0",
+        fontSize: "3em",
+        opacity: "0.0",
+        marginLeft: "35px",
+        transition: "opacity 1.2s",
+        position: "absolute",
+        display: "hidden"
     });
 
     const CurrentPageContainer = glamorous.div({
@@ -51,6 +75,7 @@ export default function Navbar() {
         alignItems: "flex-end",
         color: "white",
         padding: "50px",
+        transition: "all 1s",
         [mediaQueries.small]: {
             width: "auto",
             height: "auto",
@@ -104,13 +129,51 @@ export default function Navbar() {
         transition: "hover 0.1s ease-in"
     }
 
+    ///// NAVBAR SCROLL FUNCTION \\\\\
+    window.addEventListener("scroll", () => {
+        const scrollTop = document.documentElement.scrollTop;
+        if (scrollTop > 100) {
+            document.getElementById("project-container").style.paddingTop = "250px";
+
+            document.getElementById("nav-container").style.height = "150px";
+            document.getElementById("nav-container").style.overflow = "hidden";
+
+            document.getElementById("hi-container").style.transform = "translateY(-110%)";
+            document.getElementById("hi-container").style.diplay = "none";
+
+            document.getElementById("kit").style.opacity = "1";
+            document.getElementById("kit").style.display = "inherit";
+
+            document.getElementById("current-page-container").style.transform = "translateY(-5%)";
+            document.getElementById("current-page-container").style.color = "#FF4057";
+            document.getElementById("current-page-container").style.border = "4px solid transparent";
+
+        } else if (scrollTop < 100) {
+            document.getElementById("project-container").style.paddingTop = "500px";
+
+            document.getElementById("nav-container").style.height = "200px";
+            document.getElementById("nav-container").style.overflow = "visible";
+
+            document.getElementById("hi-container").style.transform = "translateY(0%)";
+            document.getElementById("hi-container").style.diplay = "inherit";
+
+            document.getElementById("kit").style.opacity = "0.0";
+            document.getElementById("kit").style.display = "hidden";
+
+            document.getElementById("current-page-container").style.transform = "translateY(65%)";
+            document.getElementById("current-page-container").style.color = "white";
+            document.getElementById("current-page-container").style.border = "4px solid #FF4057";
+        }
+    });
+
     return (
-        <Container>
-            <HiContainer>
+        <Container id="nav-container">
+            <HiContainer id="hi-container">
                 <HiThere>Hi, there.</HiThere>
                 <ImKit>I'm Kit and I'm a web developer</ImKit>
             </HiContainer>
-            <CurrentPageContainer>
+            <Kit id="kit">Kit</Kit>
+            <CurrentPageContainer id="current-page-container">
                 <h1>RECENT PROJECTS</h1>
             </CurrentPageContainer>
             <LinkContainer>

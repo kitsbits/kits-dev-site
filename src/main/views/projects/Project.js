@@ -5,27 +5,29 @@ import Header from "./components/Header";
 import Photo from "./components/Photo";
 
 export default function Project(props) {
+
+    ////// PHOTOS \\\\\\\
+    const backgroundImg = require("../../assets/background_main.jpg");
+    const dbs1 = require("../../assets/dbs-diary/dbs1.png");
+    const dbs2 = require("../../assets/dbs-diary/dbs2.png");
+    const dbs3 = require("../../assets/dbs-diary/dbs3.png");
+
+    ////// STYLING \\\\\\\
     const mediaQueries = {
         small: "@media screen and (max-width: 991px)"
     }
 
-    const Container = glamorous.div({
-        margin: "300px auto 0 auto",
-        width: "90%",
-        backgroundColor: "white",
-        borderRadius: "2px",
-        boxShadow: "rgba(0, 0, 0, 0.4) 0px 1px 3px inset",
-        padding: "25px 55px",
-        [mediaQueries.small]: {
-            marginTop: "200px"
-        }
+    const ProjectContainer = glamorous.div({
+        background: `url(${backgroundImg}) no-repeat`,
+        // backgroundPosition: "0 20%",
+        paddingTop: "500px",
+        width: "100wh",
+        height: "100vh",
+        backgroundSize: "cover"
     });
 
-    ////// PHOTOS \\\\\\\
-    const dbs1 = require("../../assets/dbs-diary/dbs1.png");
-
     return (
-        <Container>
+        <ProjectContainer id="project-container">
             <Header
                 title={props.title}
                 description={props.description}
@@ -34,7 +36,8 @@ export default function Project(props) {
                 seeCode={props.seeCode}
                 seeText={props.seeText}/>
             <Photo url={dbs1}/>
-
-        </Container>
+            <Photo url={dbs2}/>
+            <Photo url={dbs3}/>
+        </ProjectContainer>
     )
 }
