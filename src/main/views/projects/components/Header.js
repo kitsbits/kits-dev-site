@@ -17,7 +17,7 @@ export default function Header(props) {
         boxShadow: "rgba(0, 0, 0, 0.4) 0px 1px 3px inset",
         padding: "25px 55px",
         [mediaQueries.small]: {
-            marginTop: "200px"
+            // marginTop: "200px"
         }
     });
 

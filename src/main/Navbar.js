@@ -22,7 +22,8 @@ export default function Navbar() {
         zIndex: "1",
         [mediaQueries.small]: {
             padding: "0",
-            height: "335px"
+            height: "475px",
+            position: "static"
         }
     });
 
@@ -80,8 +81,13 @@ export default function Navbar() {
             width: "auto",
             height: "auto",
             border: "none",
-            transform: "translateY(115%)",
-            fontSize: "1.2em"
+            transform: "translateY(100%)",
+            fontSize: "1.2em",
+            marginBottom: "55px",
+            backgroundColor: "#FF4057",
+            width: "100%",
+            alignItems: "center",
+
         }
     });
 
@@ -90,10 +96,16 @@ export default function Navbar() {
         alignItems: "flex-end",
         width: "300px",
         justifyContent: "space-around",
+        transition: "all 0.2s ease-in-out",
         [mediaQueries.small]: {
-            position: "absolute",
+            position: "fixed",
             width: "100%",
-            top: "25px"
+            height: "150px",
+            paddingBottom: "25px",
+            // alignItems: "center",
+            top: "0",
+            backgroundColor: "white",
+            zIndex: "1"
         }
     });
 
@@ -132,14 +144,13 @@ export default function Navbar() {
     ///// NAVBAR SCROLL FUNCTION \\\\\
     window.addEventListener("scroll", () => {
         const scrollTop = document.documentElement.scrollTop;
-        if (scrollTop > 100) {
-            document.getElementById("project-container").style.paddingTop = "250px";
-
+        const windowWidth = window.innerWidth;
+        console.log(scrollTop)
+        if (scrollTop > 100 && windowWidth > 991) {
             document.getElementById("nav-container").style.height = "150px";
             document.getElementById("nav-container").style.overflow = "hidden";
 
             document.getElementById("hi-container").style.transform = "translateY(-110%)";
-            document.getElementById("hi-container").style.diplay = "none";
 
             document.getElementById("kit").style.opacity = "1";
             document.getElementById("kit").style.display = "inherit";
@@ -148,14 +159,11 @@ export default function Navbar() {
             document.getElementById("current-page-container").style.color = "#FF4057";
             document.getElementById("current-page-container").style.border = "4px solid transparent";
 
-        } else if (scrollTop < 100) {
-            document.getElementById("project-container").style.paddingTop = "500px";
-
+        } else if (scrollTop < 100 && windowWidth > 991) {
             document.getElementById("nav-container").style.height = "200px";
             document.getElementById("nav-container").style.overflow = "visible";
 
             document.getElementById("hi-container").style.transform = "translateY(0%)";
-            document.getElementById("hi-container").style.diplay = "inherit";
 
             document.getElementById("kit").style.opacity = "0.0";
             document.getElementById("kit").style.display = "hidden";
@@ -163,6 +171,23 @@ export default function Navbar() {
             document.getElementById("current-page-container").style.transform = "translateY(65%)";
             document.getElementById("current-page-container").style.color = "white";
             document.getElementById("current-page-container").style.border = "4px solid #FF4057";
+        } else if (windowWidth < 991 && scrollTop > 175) {
+            document.getElementById("link-container").style.height = "120px";
+            document.getElementById("current-page-container").style.zIndex = "1";
+            document.getElementById("current-page-container").style.transform = "translateY(65%)";
+        }
+
+        if (windowWidth < 991 && scrollTop > 189) {
+            // document.getElementById("current-page-container").style.transform = "translateY(50%)";
+            document.getElementById("current-page-container").style.position = "fixed";
+            document.getElementById("hi-container").style.display = "none";
+            document.getElementById("current-page-container").style.height = "100px";
+
+        }
+
+        if (windowWidth < 991 && scrollTop > 190) {
+            document.getElementById("current-page-container").style.height = "100px";
+            document.getElementById("current-page-container").style.transform = "translateY(-60%)";
         }
     });
 
@@ -176,7 +201,7 @@ export default function Navbar() {
             <CurrentPageContainer id="current-page-container">
                 <h1>RECENT PROJECTS</h1>
             </CurrentPageContainer>
-            <LinkContainer>
+            <LinkContainer id="link-container">
                 <Link to="/" style={routeNavStyles}><NavPage>RES<span style={{display: "block"}}>UME</span></NavPage></Link>
                 <NavLink target="_tab" href="https://github.com/noblepaper"><i className="fa fa-2x fa-github"></i></NavLink>
                 <NavLink target="_tab" href="https://www.linkedin.com/in/kitmasaracchia/"><i className="fa fa-2x fa-linkedin"></i></NavLink>

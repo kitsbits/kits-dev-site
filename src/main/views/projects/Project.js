@@ -19,11 +19,10 @@ export default function Project(props) {
 
     const ProjectContainer = glamorous.div({
         background: `url(${backgroundImg}) no-repeat`,
-        // backgroundPosition: "0 20%",
         paddingTop: "500px",
         width: "100wh",
-        height: "100vh",
-        backgroundSize: "cover"
+        backgroundSize: "cover",
+        paddingBottom: "25px"
     });
 
     return (
