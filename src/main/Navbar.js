@@ -178,10 +178,11 @@ export default function Navbar() {
         }
 
         if (windowWidth < 991 && scrollTop > 189) {
-            // document.getElementById("current-page-container").style.transform = "translateY(50%)";
             document.getElementById("current-page-container").style.position = "fixed";
             document.getElementById("hi-container").style.display = "none";
             document.getElementById("current-page-container").style.height = "100px";
+
+        } else if (windowWidth < 991 && scrollTop < 189) {
 
         }
 
