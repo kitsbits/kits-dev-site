@@ -10,12 +10,15 @@ export default function Header(props) {
     const Container = glamorous.div({
         display: "flex",
         justifyContent: "space-between",
+        flexWrap: "wrap",
         margin: "auto",
-        width: "90%",
+        maxWidth: "50%",
+        minWidth: "320px",
         backgroundColor: "white",
         borderRadius: "2px",
         boxShadow: "rgba(0, 0, 0, 0.4) 0px 1px 3px inset",
         padding: "25px 55px",
+        height: "350px",
         [mediaQueries.small]: {
             // marginTop: "200px"
         }
@@ -34,7 +37,7 @@ export default function Header(props) {
         [mediaQueries.xsmall]: {
             flexDirection: "column",
             marginTop: "0",
-            marginLeft: "55px",
+            // marginLeft: "55px",
             // width: "65px"
         }
     });

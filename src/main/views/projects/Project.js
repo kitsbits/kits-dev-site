@@ -22,11 +22,18 @@ export default function Project(props) {
         paddingTop: "500px",
         width: "100wh",
         backgroundSize: "cover",
-        paddingBottom: "25px"
+        paddingBottom: "25px",
+        display: "flex",
+        justifyContent: "space-around",
+        flexWrap: "wrap"
     });
 
     return (
         <ProjectContainer id="project-container">
+            <div style={{display: "flex", flexDirection: "column"}}>
+                <Photo url={dbs1}/>
+                <Photo url={dbs2}/>
+            </div>
             <Header
                 title={props.title}
                 description={props.description}
@@ -34,9 +41,10 @@ export default function Project(props) {
                 goText={props.goText}
                 seeCode={props.seeCode}
                 seeText={props.seeText}/>
-            <Photo url={dbs1}/>
-            <Photo url={dbs2}/>
-            <Photo url={dbs3}/>
+            <div style={{display: "flex", flexDirection: "column"}}>
+                <Photo url={dbs3}/>
+                <Photo url={dbs3}/>
+            </div>
         </ProjectContainer>
     )
 }

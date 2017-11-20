@@ -179,17 +179,22 @@ export default function Navbar() {
 
         if (windowWidth < 991 && scrollTop > 189) {
             document.getElementById("current-page-container").style.position = "fixed";
+            document.getElementById("current-page-container").style.top = "50px";
             document.getElementById("hi-container").style.display = "none";
             document.getElementById("current-page-container").style.height = "100px";
 
-        } else if (windowWidth < 991 && scrollTop < 189) {
-
         }
+        // else if (windowWidth < 991 && scrollTop < 189) {
+        //     document.getElementById("current-page-container").style.position = "relative";
+        //     document.getElementById("current-page-container").style.top = "auto";
+        //     document.getElementById("hi-container").style.display = "inherit";
+        //     document.getElementById("current-page-container").style.height = "120px";
+        // }
 
-        if (windowWidth < 991 && scrollTop > 190) {
-            document.getElementById("current-page-container").style.height = "100px";
-            document.getElementById("current-page-container").style.transform = "translateY(-60%)";
-        }
+        // if (windowWidth < 991 && scrollTop > 190) {
+        //     document.getElementById("current-page-container").style.height = "100px";
+        //     document.getElementById("current-page-container").style.transform = "translateY(-60%)";
+        // }
     });
 
     return (
