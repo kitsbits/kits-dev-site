@@ -7,8 +7,6 @@ import Projects from "./views/projects/Projects";
 import Resume from "./views/resume/Resume";
 
 export default function App() {
-
-
     return (
         <div>
             <Navbar/>

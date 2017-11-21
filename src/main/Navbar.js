@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import glamorous from "glamorous";
 
-export default function Navbar() {
+export default function Navbar(props) {
 
     ///// STYLING \\\\\
     const mediaQueries = {
@@ -196,7 +196,6 @@ export default function Navbar() {
         //     document.getElementById("current-page-container").style.transform = "translateY(-60%)";
         // }
     });
-
     return (
         <Container id="nav-container">
             <HiContainer id="hi-container">
@@ -205,10 +204,13 @@ export default function Navbar() {
             </HiContainer>
             <Kit id="kit">Kit</Kit>
             <CurrentPageContainer id="current-page-container">
-                <h1>RECENT PROJECTS</h1>
+                <h1>{window.location.pathname === "/resume" ? "RESUME" : "RECENT PROJECTS"}</h1>
             </CurrentPageContainer>
             <LinkContainer id="link-container">
-                <Link to="/" style={routeNavStyles}><NavPage>RES<span style={{display: "block"}}>UME</span></NavPage></Link>
+                {window.location.pathname === "/resume" ?
+                <Link to="/" style={routeNavStyles}><NavPage>WEB<span style={{display: "block"}}>DEV</span></NavPage></Link> :
+                <Link to="/resume" style={routeNavStyles}><NavPage>RES<span style={{display: "block"}}>UME</span></NavPage></Link>
+                }
                 <NavLink target="_tab" href="https://github.com/noblepaper"><i className="fa fa-2x fa-github"></i></NavLink>
                 <NavLink target="_tab" href="https://www.linkedin.com/in/kitmasaracchia/"><i className="fa fa-2x fa-linkedin"></i></NavLink>
             </LinkContainer>
