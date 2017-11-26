@@ -21,6 +21,7 @@ export default function Resume() {
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
+            margin: "90px 0",
         }
     });
 
@@ -35,6 +36,10 @@ export default function Resume() {
         width: "30%",
         alignItems: "center",
         justifyContent: "space-around",
+        [mediaQueries.small]: {
+            width: "80%",
+            marginTop: "25px",
+        }
     });
 
     const MainBody = glamorous.div({
@@ -43,24 +48,24 @@ export default function Resume() {
     })
 
     const JobsContainer = glamorous.div({
-        display: "flex",
-        flexDirection: "column",
         backgroundColor: "#201D1A",
-        width: "60%",
+        width: "65%",
+        paddingBottom: "25px",
         height: "500px",
         overflow: "scroll",
         [mediaQueries.small]: {
             width: "100%",
+            height: "auto",
         }
     });
 
     const SkillsContainer = glamorous.div({
         display: "flex",
-        justifyContent: "space-around",
-        width: "40%",
-        height: "500px",
+        justifyContent: "center",
+        width: "35%",
         [mediaQueries.small]: {
             width: "100%",
+            marginBottom: "40px",
         }
     });
 
@@ -86,9 +91,43 @@ export default function Resume() {
                 </SkillsContainer>
                 <JobsContainer>
                     {/* <RecentExperience>RECENT EXPERIENCE</RecentExperience> */}
-                    <Job></Job>
+                    <Job
+                        title="CREATIVE DIRECTOR"
+                        time="Jan 2014 - Present"
+                        workplace="The Noble Paper Creative"
+                        pop1="Freelance graphic design"
+                        bullet1=" specializing in web and logo design for small businesses and artists."></Job>
+                    <Job
+                        title="PROJECT MANAGER"
+                        time="July 2013 - July 2016"
+                        workplace="PRIME Research"
+                        pop1="Produced 100+ reports"
+                        bullet1=" from raw data, while overseeing data collection and cleaning."
+                        pop2="Onboarded 5 new clients"
+                        bullet2=", translating the needs of multinational, conglomerate companies into trackable and substantive data, often without additional team resources."
+                        pop3="Reduced team budget hours by 65%"
+                        bullet3=" and aided in setting future standards for team budgeting."
+                        pop4="Managed global team of 15+ media analysts"
+                        pop5="Trained all new team members"
+                        bullet5=" and was responsible for the quality of their work product."></Job>
+
+                    <Job
+                        title="EXECUTIVE LEGAL ASSISTANT"
+                        time="Apr 2011 - Mar 2013"
+                        workplace="The Law Offices of Susan J. Stauffer"
+                        pop1="Organized trial discovery"
+                        bullet1=" documents and managed attorney’s calendar to meet filing and trial deadlines."
+                        pop2="Increased attorney’s profits"
+                        bullet2=" by digitizing billing procedures."
+                        pop3="Improved workflow efficiency"
+                        bullet3=" by updating filing procedures."></Job>
+
                 </JobsContainer>
             </MainBody>
         </div>
     )
 }
+
+/*
+
+*/

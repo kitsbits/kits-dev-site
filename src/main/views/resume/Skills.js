@@ -2,15 +2,26 @@ import React from "react";
 import glamorous from "glamorous";
 
 export default function Skills(props) {
+    const mediaQueries = {
+        small: "@media screen and (max-width: 991px)",
+        xsmall: "@media screen and (max-width: 675px)"
+    };
+
     const Section = glamorous.div({
         display: "flex",
+        flexWrap: "wrap",
+        width: "80%",
     });
 
     const Container = glamorous.div({
-        display: "flex",
-        flexDirection: "column",
         padding: "25px",
-
+        width: "50%",
+        [mediaQueries.small]: {
+            width: "25%",
+        },
+        [mediaQueries.xsmall]: {
+            width: "50%",
+        }
     });
 
     const Header = glamorous.p({
@@ -31,40 +42,36 @@ export default function Skills(props) {
     const Underline = glamorous.p({
         borderBottom: "4px solid #FF4057",
         width: "50px",
-    })
+    });
 
     return (
-        <div>
-            <Section>
-                <Container>
-                    <Header>Frontend</Header>
-                    <Underline/>
-                    <Skills>Javascript</Skills>
-                    <Skills>HTML/CSS</Skills>
-                    <Skills>React</Skills>
-                </Container>
-                <Container>
-                    <Header>Backend</Header>
-                    <Underline/>
-                    <Skills>Express</Skills>
-                    <Skills>MongoDB</Skills>
-                    <Skills>Mongoose</Skills>
-                </Container>
-            </Section>
-            <Section>
-                <Container>
-                    <Header>Data Analysis</Header>
-                    <Underline/>
-                    <Skills>SPSS</Skills>
-                    <Skills>R</Skills>
-                </Container>
-                <Container>
-                    <Header>Design</Header>
-                    <Underline/>
-                    <Skills>Sketch</Skills>
-                    <Skills>Illustrator</Skills>
-                </Container>
-            </Section>
-        </div>
+        <Section>
+            <Container>
+                <Header>Frontend</Header>
+                <Underline/>
+                <Skills>Javascript</Skills>
+                <Skills>HTML/CSS</Skills>
+                <Skills>React</Skills>
+            </Container>
+            <Container>
+                <Header>Backend</Header>
+                <Underline/>
+                <Skills>Express</Skills>
+                <Skills>MongoDB</Skills>
+                <Skills>Mongoose</Skills>
+            </Container>
+            <Container>
+                <Header>Data Analysis</Header>
+                <Underline/>
+                <Skills>SPSS</Skills>
+                <Skills>R</Skills>
+            </Container>
+            <Container>
+                <Header>Design</Header>
+                <Underline/>
+                <Skills>Sketch</Skills>
+                <Skills>Illustrator</Skills>
+            </Container>
+        </Section>
     )
 }
