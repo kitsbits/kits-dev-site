@@ -12,13 +12,9 @@ export default function Header(props) {
         justifyContent: "space-between",
         flexWrap: "wrap",
         margin: "auto",
-        maxWidth: "50%",
-        minWidth: "320px",
-        backgroundColor: "white",
-        borderRadius: "2px",
-        boxShadow: "rgba(0, 0, 0, 0.4) 0px 1px 3px inset",
-        padding: "25px 55px",
-        height: "350px",
+        zIndex: "1",
+        position: "relative",
+        // maxWidth: "50%",
         [mediaQueries.small]: {
             // marginTop: "200px"
         }

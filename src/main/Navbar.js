@@ -19,7 +19,7 @@ export default function Navbar(props) {
         width: "100%",
         height: "200px",
         transition: "height 1s",
-        zIndex: "1",
+        zIndex: "2",
         [mediaQueries.small]: {
             padding: "0",
             height: "475px",

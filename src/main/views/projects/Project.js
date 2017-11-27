@@ -8,9 +8,9 @@ export default function Project(props) {
 
     ////// PHOTOS \\\\\\\
     const backgroundImg = require("../../assets/background_main.jpg");
-    const dbs1 = require("../../assets/dbs-diary/dbs1.png");
-    const dbs2 = require("../../assets/dbs-diary/dbs2.png");
-    const dbs3 = require("../../assets/dbs-diary/dbs3.png");
+    const journal = require("../../assets/journal.png");
+    const calendar = require("../../assets/calendar.png");
+    const bottom = require("../../assets/bottom.png");
 
     ////// STYLING \\\\\\\
     const mediaQueries = {
@@ -21,19 +21,51 @@ export default function Project(props) {
         background: `url(${backgroundImg}) no-repeat`,
         paddingTop: "500px",
         width: "100wh",
+        height: "2500",
         backgroundSize: "cover",
         paddingBottom: "25px",
-        display: "flex",
-        justifyContent: "space-around",
-        flexWrap: "wrap"
+    });
+
+    const Triangle = glamorous.div({
+        width: "0",
+        height: "0",
+        borderStyle: "solid",
+        borderWidth: "0 1700px 900px 1700px",
+        borderColor: "transparent transparent white transparent",
+        position: "absolute",
+        transform: "translateX(-50%)",
+    });
+
+    const JournalPic = glamorous.div({
+        width: "488px",
+        height: "372px",
+        background: `url(${journal}) no-repeat center`,
+        backgroundSize: "cover",
+        position: "relative",
+        zIndex: "1",
+    });
+
+    const CalendarPic = glamorous.div({
+        width: "266px",
+        height: "372px",
+        background: `url(${calendar}) no-repeat center`,
+        backgroundSize: "cover",
+        position: "relative",
+        zIndex: "1",
+    });
+
+    const BottomPic = glamorous.div({
+        width: "943px",
+        height: "354px",
+        background: `url(${bottom}) no-repeat center`,
+        backgroundSize: "cover",
+        position: "relative",
+        zIndex: "1",
     });
 
     return (
         <ProjectContainer id="project-container">
-            <div style={{display: "flex", flexDirection: "column"}}>
-                <Photo url={dbs1}/>
-                <Photo url={dbs2}/>
-            </div>
+            <Triangle/>
             <Header
                 title={props.title}
                 description={props.description}
@@ -41,10 +73,10 @@ export default function Project(props) {
                 goText={props.goText}
                 seeCode={props.seeCode}
                 seeText={props.seeText}/>
-            <div style={{display: "flex", flexDirection: "column"}}>
-                <Photo url={dbs3}/>
-                <Photo url={dbs3}/>
-            </div>
+            <JournalPic/>
+            <CalendarPic/>
+            <BottomPic/>
+
         </ProjectContainer>
     )
 }
