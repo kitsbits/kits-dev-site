@@ -10,8 +10,8 @@ export default function Project(props) {
     const backgroundImg = require("../../assets/background_main.jpg");
     const journal = require("../../assets/journal.png");
     const calendar = require("../../assets/calendar.png");
-    const bottom = require("../../assets/bottom.png");
-    const triangle = require("../../assets/triangle.png");
+    const calculator = require("../../assets/calculator.png");
+    const shitlist = require("../../assets/shitlist.png");
 
     ////// STYLING \\\\\\\
     const mediaQueries = {
@@ -35,11 +35,6 @@ export default function Project(props) {
         borderColor: "transparent transparent white transparent",
         position: "absolute",
         transform: "translateX(-50%)",
-        // background: `url(${triangle})`,
-        // backgroundSize: "cover",
-        // width: "100vw",
-        // height: "900px",
-        // position: "absolute",
     });
 
     const JournalPic = glamorous.div({
@@ -60,12 +55,19 @@ export default function Project(props) {
         zIndex: "1",
     });
 
-    const BottomPic = glamorous.div({
-        width: "943px",
+    const CalculatorPic = glamorous.div({
+        width: "365px",
         height: "354px",
-        background: `url(${bottom}) no-repeat center`,
+        background: `url(${calculator}) no-repeat center`,
         backgroundSize: "cover",
-        position: "relative",
+        zIndex: "1",
+    });
+
+    const ShitlistPic = glamorous.div({
+        width: "490px",
+        height: "319px",
+        background: `url(${shitlist}) no-repeat center`,
+        backgroundSize: "cover",
         zIndex: "1",
     });
 
@@ -81,7 +83,8 @@ export default function Project(props) {
                 seeText={props.seeText}/>
             <JournalPic/>
             <CalendarPic/>
-            <BottomPic/>
+            <CalculatorPic/>
+            <ShitlistPic/>
 
         </ProjectContainer>
     )

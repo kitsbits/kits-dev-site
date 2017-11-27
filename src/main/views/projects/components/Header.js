@@ -14,28 +14,32 @@ export default function Header(props) {
         margin: "auto",
         zIndex: "1",
         position: "relative",
-        marginTop: "200px",
+        marginTop: "100px",
         // maxWidth: "50%",
         [mediaQueries.small]: {
-            marginTop: "200px"
+            marginTop: "100px"
         }
     });
 
     const TextContainer = glamorous.div({
         marginLeft: "125px",
+        [mediaQueries.xsmall]: {
+            margin: "auto",
+            padding: "25px",
+        }
     });
 
     const LinksContainer = glamorous.div({
         display: "flex",
         justifyContent: "space-between",
         width: "150px",
-        marginTop: "25px",
-        marginLeft: "125px",
+        margin: "25px 0px 25px 125px",
         [mediaQueries.xsmall]: {
-            flexDirection: "column",
-            marginTop: "0",
+            // flexDirection: "column",
+            // marginTop: "0",
             // marginLeft: "55px",
             // width: "65px"
+            margin: "0px auto 25px auto",
         }
     });
 

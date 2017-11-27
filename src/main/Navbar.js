@@ -149,6 +149,8 @@ export default function Navbar(props) {
         if (scrollTop > 100 && windowWidth > 991) {
             document.getElementById("nav-container").style.height = "150px";
             document.getElementById("nav-container").style.overflow = "hidden";
+            document.getElementById("nav-container").style.borderBottom = "4px solid #FF4057";
+
 
             document.getElementById("hi-container").style.transform = "translateY(-110%)";
 
@@ -162,6 +164,7 @@ export default function Navbar(props) {
         } else if (scrollTop < 100 && windowWidth > 991) {
             document.getElementById("nav-container").style.height = "200px";
             document.getElementById("nav-container").style.overflow = "visible";
+            document.getElementById("nav-container").style.borderBottom = "none";
 
             document.getElementById("hi-container").style.transform = "translateY(0%)";
 
