@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import glamorous from "glamorous";
 
 export default function Navbar(props) {
-
     ///// STYLING \\\\\
     const mediaQueries = {
         small: "@media screen and (max-width: 991px)"
@@ -23,7 +22,7 @@ export default function Navbar(props) {
         [mediaQueries.small]: {
             padding: "0",
             height: "475px",
-            position: "static"
+            position: "static",
         }
     });
 
@@ -35,7 +34,7 @@ export default function Navbar(props) {
         // diplay: "flex",
         [mediaQueries.small]: {
             position: "absolute",
-            top: "125px",
+            top: "155px",
             width: "100%",
             textAlign: "center"
         }
@@ -77,11 +76,13 @@ export default function Navbar(props) {
         color: "white",
         padding: "50px",
         transition: "all 1s",
+        zIndex: "1",
+        position: "relative",
         [mediaQueries.small]: {
             width: "auto",
             height: "auto",
             border: "none",
-            transform: "translateY(100%)",
+            transform: "translateY(130%)",
             fontSize: "1.2em",
             marginBottom: "55px",
             backgroundColor: "#FF4057",
@@ -119,14 +120,14 @@ export default function Navbar(props) {
         fontWeight: "600",
         transition: "all 0.2s ease-in-out",
         ":hover": {
-            color: "#FF4057"
+            color: "#FF4057",
         }
     });
 
     const NavPage = glamorous.span({
         transition: "all 0.1s ease-in",
         ":hover": {
-            color: "#FF4057"
+            color: "#FF4057",
         }
     })
 
@@ -145,7 +146,6 @@ export default function Navbar(props) {
     window.addEventListener("scroll", () => {
         const scrollTop = document.documentElement.scrollTop;
         const windowWidth = window.innerWidth;
-        console.log(scrollTop)
         if (scrollTop > 100 && windowWidth > 991) {
             document.getElementById("nav-container").style.height = "150px";
             document.getElementById("nav-container").style.overflow = "hidden";
@@ -171,31 +171,27 @@ export default function Navbar(props) {
             document.getElementById("current-page-container").style.transform = "translateY(65%)";
             document.getElementById("current-page-container").style.color = "white";
             document.getElementById("current-page-container").style.border = "4px solid #FF4057";
-        } else if (windowWidth < 991 && scrollTop > 175) {
+        } else if (scrollTop > 175 && windowWidth < 991) {
             document.getElementById("link-container").style.height = "120px";
-            document.getElementById("current-page-container").style.zIndex = "1";
             document.getElementById("current-page-container").style.transform = "translateY(65%)";
         }
 
-        if (windowWidth < 991 && scrollTop > 189) {
+        if (scrollTop > 189 && windowWidth < 991) {
             document.getElementById("current-page-container").style.position = "fixed";
             document.getElementById("current-page-container").style.top = "50px";
             document.getElementById("hi-container").style.display = "none";
             document.getElementById("current-page-container").style.height = "100px";
 
+        } else if (scrollTop < 189 && windowWidth < 991) {
+            document.getElementById("link-container").style.height = "150px";
+            document.getElementById("current-page-container").style.transform = "translateY(110%)";
+            document.getElementById("current-page-container").style.height = "200px";
+            document.getElementById("current-page-container").style.position = "relative";
+            document.getElementById("hi-container").style.display = "flex";
+            document.getElementById("hi-container").style.flexDirection = "column";
         }
-        // else if (windowWidth < 991 && scrollTop < 189) {
-        //     document.getElementById("current-page-container").style.position = "relative";
-        //     document.getElementById("current-page-container").style.top = "auto";
-        //     document.getElementById("hi-container").style.display = "inherit";
-        //     document.getElementById("current-page-container").style.height = "120px";
-        // }
-
-        // if (windowWidth < 991 && scrollTop > 190) {
-        //     document.getElementById("current-page-container").style.height = "100px";
-        //     document.getElementById("current-page-container").style.transform = "translateY(-60%)";
-        // }
     });
+
     return (
         <Container id="nav-container">
             <HiContainer id="hi-container">
