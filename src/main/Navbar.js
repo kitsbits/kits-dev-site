@@ -76,7 +76,7 @@ export default function Navbar(props) {
         color: "white",
         padding: "50px",
         transition: "all 1s",
-        zIndex: "1",
+        zIndex: "2",
         position: "relative",
         [mediaQueries.small]: {
             width: "auto",
@@ -106,7 +106,7 @@ export default function Navbar(props) {
             // alignItems: "center",
             top: "0",
             backgroundColor: "white",
-            zIndex: "1"
+            zIndex: "2"
         }
     });
 

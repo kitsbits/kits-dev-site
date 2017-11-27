@@ -11,6 +11,7 @@ export default function Project(props) {
     const journal = require("../../assets/journal.png");
     const calendar = require("../../assets/calendar.png");
     const bottom = require("../../assets/bottom.png");
+    const triangle = require("../../assets/triangle.png");
 
     ////// STYLING \\\\\\\
     const mediaQueries = {
@@ -30,10 +31,15 @@ export default function Project(props) {
         width: "0",
         height: "0",
         borderStyle: "solid",
-        borderWidth: "0 1700px 900px 1700px",
+        borderWidth: "0 3000px 900px 3000px",
         borderColor: "transparent transparent white transparent",
         position: "absolute",
         transform: "translateX(-50%)",
+        // background: `url(${triangle})`,
+        // backgroundSize: "cover",
+        // width: "100vw",
+        // height: "900px",
+        // position: "absolute",
     });
 
     const JournalPic = glamorous.div({
