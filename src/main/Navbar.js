@@ -27,7 +27,7 @@ export default function Navbar(props) {
     });
 
     const HiContainer = glamorous.div({
-        width: "300px",
+        width: "320px",
         padding: "15px",
         fontSize: "1.35em",
         alignSelf: "flex-start",

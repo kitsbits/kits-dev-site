@@ -2,7 +2,7 @@ import React from "react";
 import glamorous from "glamorous";
 
 import Header from "./components/Header";
-import Photo from "./components/Photo";
+import Triangle from "./components/Triangle.js";
 
 export default function Project(props) {
 
@@ -12,12 +12,13 @@ export default function Project(props) {
     const calendar = require("../../assets/calendar.png");
     const calculator = require("../../assets/calculator.png");
     const shitlist = require("../../assets/shitlist.png");
+    ///////////////////////////////////////////////////////
 
     ////// STYLING \\\\\\\
     const mediaQueries = {
         small: "@media screen and (max-width: 991px)",
-        xsmall: "@media screen and (max-width: 700px)"
-    }
+        xsmall: "@media screen and (max-width: 700px)",
+    };
 
     const ProjectContainer = glamorous.div({
         background: `url(${backgroundImg}) no-repeat`,
@@ -26,15 +27,7 @@ export default function Project(props) {
         height: "auto",
         backgroundSize: "cover",
         paddingBottom: "25px",
-    });
-
-    const Triangle = glamorous.div({
-        width: "0",
-        height: "0",
-        borderStyle: "solid",
-        borderWidth: "0 2500px 900px 2500px",
-        borderColor: "transparent transparent white transparent",
-        overflow: "hidden",
+        marginBottom: "100px",
     });
 
     const TopPics = glamorous.div({
@@ -120,11 +113,12 @@ export default function Project(props) {
         [mediaQueries.small]: {
             marginLeft: "0",
         }
-    })
+    });
+    //////////////////////////////////////////
 
     return (
         <ProjectContainer id="project-container">
-            <div style={{position: "absolute", transform: "translateX(-50%)"}}><Triangle/></div>
+            <Triangle borderWidth="0 2500px 900px 2500px"/>
             <Header
                 title={props.title}
                 description={props.description}

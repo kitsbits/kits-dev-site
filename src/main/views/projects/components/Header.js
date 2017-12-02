@@ -35,10 +35,6 @@ export default function Header(props) {
         width: "150px",
         margin: "25px 0px 25px 125px",
         [mediaQueries.xsmall]: {
-            // flexDirection: "column",
-            // marginTop: "0",
-            // marginLeft: "55px",
-            // width: "65px"
             margin: "0px auto 25px auto",
         }
     });
@@ -63,10 +59,14 @@ export default function Header(props) {
     return (
         <Container>
             <LinksContainer>
+                {props.goThere ? (
                 <NavLink href={props.goThere}>
                     <i className="fa fa-2x fa-bullseye"></i>
                     {props.goText}
                 </NavLink>
+                ) : (
+                    null
+                )}
                 <NavLink href={props.seeCode}>
                     <i className="fa fa-2x fa-github"></i>
                     {props.seeText}
