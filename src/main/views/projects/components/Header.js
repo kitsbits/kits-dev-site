@@ -60,17 +60,21 @@ export default function Header(props) {
         <Container>
             <LinksContainer>
                 {props.goThere ? (
-                <NavLink href={props.goThere}>
+                <NavLink href={props.goThere} target="tab">
                     <i className="fa fa-2x fa-bullseye"></i>
                     {props.goText}
                 </NavLink>
                 ) : (
                     null
                 )}
-                <NavLink href={props.seeCode}>
+                {props.goThere ? (
+                <NavLink href={props.seeCode} target="tab">
                     <i className="fa fa-2x fa-github"></i>
                     {props.seeText}
                 </NavLink>
+                ) : (
+                    null
+                )}
             </LinksContainer>
             <TextContainer>
                 <h1>{props.title}</h1>

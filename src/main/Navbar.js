@@ -15,7 +15,7 @@ export default function Navbar(props) {
         alignItems: "center",
         position: "fixed",
         backgroundColor: "white",
-        width: "100%",
+        width: "100vw",
         height: "200px",
         transition: "height 1s",
         zIndex: "2",
@@ -31,21 +31,21 @@ export default function Navbar(props) {
         padding: "15px",
         fontSize: "1.35em",
         alignSelf: "flex-start",
-        // diplay: "flex",
         [mediaQueries.small]: {
             position: "absolute",
             top: "155px",
             width: "100%",
-            textAlign: "center"
+            textAlign: "center",
         }
     });
 
     const MoveUp = glamorous.div({
-        transition: "transform 1s"
+        transition: "transform 1s",
     })
 
     const HiThere = glamorous.h1({
-        margin: "0"
+        margin: "0",
+        fontWeight: "300",
     });
 
     const ImKit = glamorous.h1({
@@ -61,7 +61,7 @@ export default function Navbar(props) {
         marginLeft: "35px",
         transition: "opacity 1.2s",
         position: "absolute",
-        display: "hidden"
+        display: "hidden",
     });
 
     const CurrentPageContainer = glamorous.div({
@@ -106,7 +106,7 @@ export default function Navbar(props) {
             // alignItems: "center",
             top: "0",
             backgroundColor: "white",
-            zIndex: "2"
+            zIndex: "2",
         }
     });
 
@@ -139,7 +139,7 @@ export default function Navbar(props) {
         color: "black",
         fontSize: "1.5em",
         fontWeight: "600",
-        transition: "hover 0.1s ease-in"
+        transition: "hover 0.1s ease-in",
     }
 
     ///// NAVBAR SCROLL FUNCTION \\\\\

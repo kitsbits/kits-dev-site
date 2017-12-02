@@ -26,8 +26,8 @@ export default function Project(props) {
         width: "100wh",
         height: "auto",
         backgroundSize: "cover",
-        paddingBottom: "25px",
-        marginBottom: "100px",
+        paddingBottom: "55px",
+        borderBottom: "10px solid #FF4057",
     });
 
     const TopPics = glamorous.div({

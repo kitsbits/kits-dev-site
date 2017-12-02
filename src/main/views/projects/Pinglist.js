@@ -6,13 +6,6 @@ import Triangle from "./components/Triangle.js";
 import MobilePic from "./components/MobilePic.js";
 
 export default function MobileProject(props) {
-    /// PHOTOS \\\
-    const backgroundImg = require("../../assets/native-weather/background_nativeWeather.png");
-    const login = require("../../assets/native-weather/login.png");
-    const today = require("../../assets/native-weather/today.png");
-    const extended = require("../../assets/native-weather/extended.png");
-    ////////////////////////////////////////////
-
     /// STYLING \\\
     const mediaQueries = {
         small: "@media screen and (max-width: 991px)",
@@ -21,22 +14,41 @@ export default function MobileProject(props) {
     };
 
     const ProjectContainer = glamorous.div({
-        background: `url(${backgroundImg}) no-repeat`,
+        background: `url(${props.background}) no-repeat`,
         paddingTop: "200px",
         width: "100wh",
+        overflow: "hidden",
         height: "auto",
         backgroundSize: "cover",
-        paddingBottom: "25px",
-        marginBottom: "100px",
+        paddingBottom: "55px",
+        borderBottom: "10px solid #FF4057",
     });
 
-    const PicsContainer = glamorous.div({
+    const TopPicsContainer = glamorous.div({
+        display: "flex",
+        justifyContent: "space-around",
+        flexWrap: "wrap",
+        marginTop: "55px",
+        width: "80%",
+        margin: "auto",
+        [mediaQueries.mobilePics]: {
+            width: "100%",
+            justifyContent: "space-between",
+        },
+        [mediaQueries.small]: {
+            width: "100%",
+            justifyContent: "center",
+        },
+    });
+
+    const BottomPicsContainer = glamorous.div({
         display: "flex",
         justifyContent: "center",
         flexWrap: "wrap",
-        marginTop: "55px",
-        [mediaQueries.mobilePics]: {
-
+        margin: "-420px auto 0px auto",
+        // width: "50%",
+        [mediaQueries.small]: {
+            margin: "35px auto auto auto",
         }
     });
     ////////////////////////////////////////////
@@ -52,11 +64,14 @@ export default function MobileProject(props) {
                 goText={props.goText}
                 seeCode={props.seeCode}
                 seeText={props.seeText}/>
-            <PicsContainer>
-                <MobilePic imgUrl={login}/>
-                <MobilePic imgUrl={today}/>
-                <MobilePic imgUrl={extended}/>
-            </PicsContainer>
+            <TopPicsContainer>
+                <MobilePic imgUrl={props.profile}/>
+                <MobilePic imgUrl={props.login}/>
+            </TopPicsContainer>
+            <BottomPicsContainer>
+                <MobilePic imgUrl={props.alarms}/>
+                <MobilePic imgUrl={props.performance}/>
+            </BottomPicsContainer>
         </ProjectContainer>
     )
 }
