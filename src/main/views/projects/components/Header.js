@@ -2,6 +2,7 @@ import React from "react";
 import glamorous from "glamorous";
 
 export default function Header(props) {
+    /// STYLING \\\
     const mediaQueries = {
         small: "@media screen and (max-width: 991px)",
         xsmall: "@media screen and (max-width: 700px)"
@@ -55,9 +56,23 @@ export default function Header(props) {
         },
     });
 
-
+    const Languages = glamorous.p({
+        color: "#FF4057",
+        fontWeight: "600",
+        zIndex: "1",
+        position: "relative",
+        fontSize: "1.25em",
+        width: "100px",
+        marginLeft: "100px",
+    });
+    ////////////////////////////////////
     return (
         <Container>
+            {props.languages ? (
+                <Languages>{props.languages}</Languages>
+                ) : (
+                null
+            )}
             <LinksContainer>
                 {props.goThere ? (
                 <NavLink href={props.goThere} target="tab">
@@ -67,7 +82,7 @@ export default function Header(props) {
                 ) : (
                     null
                 )}
-                {props.goThere ? (
+                {props.seeCode ? (
                 <NavLink href={props.seeCode} target="tab">
                     <i className="fa fa-2x fa-github"></i>
                     {props.seeText}

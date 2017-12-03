@@ -53,7 +53,6 @@ export default function MobileProject(props) {
     });
     ////////////////////////////////////////////
 
-
     return (
         <ProjectContainer>
             <Triangle borderWidth="0 2500px 800px 2500px"/>

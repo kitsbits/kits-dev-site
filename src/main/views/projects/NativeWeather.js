@@ -45,7 +45,8 @@ export default function MobileProject(props) {
                 goThere={props.goThere}
                 goText={props.goText}
                 seeCode={props.seeCode}
-                seeText={props.seeText}/>
+                seeText={props.seeText}
+                languages="REACT NATIVE + REDUX + EXPRESS + MONGOOSE"/>
             <PicsContainer>
                 <MobilePic imgUrl={props.login}/>
                 <MobilePic imgUrl={props.today}/>

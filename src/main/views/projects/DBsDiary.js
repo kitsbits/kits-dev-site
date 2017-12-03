@@ -7,11 +7,11 @@ import Triangle from "./components/Triangle.js";
 export default function Project(props) {
 
     ////// PHOTOS \\\\\\\
-    const backgroundImg = require("../../assets/background_main.jpg");
-    const journal = require("../../assets/journal.png");
-    const calendar = require("../../assets/calendar.png");
-    const calculator = require("../../assets/calculator.png");
-    const shitlist = require("../../assets/shitlist.png");
+    const backgroundImg = require("../../assets/dbs-diary/background_dbs.jpg");
+    const journal = require("../../assets/dbs-diary/journal.png");
+    const calendar = require("../../assets/dbs-diary/calendar.png");
+    const calculator = require("../../assets/dbs-diary/calculator.png");
+    const shitlist = require("../../assets/dbs-diary/shitlist.png");
     ///////////////////////////////////////////////////////
 
     ////// STYLING \\\\\\\
@@ -62,8 +62,9 @@ export default function Project(props) {
         position: "relative",
         zIndex: "1",
         alignSelf: "flex-end",
-        [mediaQueries.small]: {
-
+        [mediaQueries.xsmall]: {
+            width: "320px",
+            height: "244px",
         }
     });
 
@@ -74,6 +75,10 @@ export default function Project(props) {
         backgroundSize: "cover",
         position: "relative",
         zIndex: "1",
+        [mediaQueries.xsmall]: {
+            width: "320px",
+            height: "448px",
+        }
     });
 
     const CalculatorPic = glamorous.div({
@@ -83,6 +88,10 @@ export default function Project(props) {
         backgroundSize: "cover",
         zIndex: "1",
         position: "relative",
+        [mediaQueries.xsmall]: {
+            width: "320px",
+            height: "310px",
+        }
     });
 
     const ShitlistPic = glamorous.div({
@@ -92,6 +101,10 @@ export default function Project(props) {
         backgroundSize: "cover",
         zIndex: "1",
         position: "relative",
+        [mediaQueries.xsmall]: {
+            width: "320px",
+            height: "208px",
+        }
     });
 
     const WithLanguagesContainer = glamorous.div({
