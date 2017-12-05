@@ -26,7 +26,7 @@ export default function Projects() {
             <DBsDiary
                 title="DBs Diary"
                 description="A simple, purposefully dated, user interface for uninhibited journaling"
-                goThere="http://localhost:3000/"
+                goThere="https://dbs-diary.herokuapp.com/"
                 goText="go there"
                 seeCode="https://github.com/noblepaper/dbs-diary"
                 seeText="see code"/>
