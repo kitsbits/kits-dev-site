@@ -40,6 +40,14 @@ export default function Header(props) {
         }
     });
 
+    const MobileStyling = glamorous.div({
+        [mediaQueries.xsmall]: {
+            display: "flex",
+            alignItems: "flex-end",
+            justifyContent: "space-between",
+        }
+    })
+
     const NavLink = glamorous.a({
         display: "flex",
         flexDirection: "column",
@@ -64,33 +72,38 @@ export default function Header(props) {
         fontSize: "1.25em",
         width: "100px",
         marginLeft: "100px",
+        [mediaQueries.xsmall]: {
+            margin: "auto",
+        }
     });
     ////////////////////////////////////
     return (
         <Container>
-            {props.languages ? (
-                <Languages>{props.languages}</Languages>
-                ) : (
-                null
-            )}
-            <LinksContainer>
-                {props.goThere ? (
-                <NavLink href={props.goThere} target="tab">
-                    <i className="fa fa-2x fa-bullseye"></i>
-                    {props.goText}
-                </NavLink>
-                ) : (
+            <MobileStyling>
+                {props.languages ? (
+                    <Languages>{props.languages}</Languages>
+                    ) : (
                     null
                 )}
-                {props.seeCode ? (
-                <NavLink href={props.seeCode} target="tab">
-                    <i className="fa fa-2x fa-github"></i>
-                    {props.seeText}
-                </NavLink>
-                ) : (
-                    null
-                )}
-            </LinksContainer>
+                <LinksContainer>
+                    {props.goThere ? (
+                    <NavLink href={props.goThere} target="tab">
+                        <i className="fa fa-2x fa-bullseye"></i>
+                        {props.goText}
+                    </NavLink>
+                    ) : (
+                        null
+                    )}
+                    {props.seeCode ? (
+                    <NavLink href={props.seeCode} target="tab">
+                        <i className="fa fa-2x fa-github"></i>
+                        {props.seeText}
+                    </NavLink>
+                    ) : (
+                        null
+                    )}
+                </LinksContainer>
+            </MobileStyling>
             <TextContainer>
                 <h1>{props.title}</h1>
                 <p>{props.description}</p>
