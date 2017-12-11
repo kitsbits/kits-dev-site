@@ -16,9 +16,10 @@ export default function Header(props) {
         zIndex: "1",
         position: "relative",
         marginTop: "100px",
-        // maxWidth: "50%",
         [mediaQueries.small]: {
-            marginTop: "100px"
+            marginTop: "50px",
+            backgroundColor: "white",
+            padding: "45px 25px 25px 25px",
         }
     });
 

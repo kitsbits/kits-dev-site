@@ -38,6 +38,7 @@ export default function MobileProject(props) {
         [mediaQueries.small]: {
             width: "100%",
             justifyContent: "center",
+            marginTop: "55px",
         },
     });
 
@@ -62,7 +63,8 @@ export default function MobileProject(props) {
                 goThere={props.goThere}
                 goText={props.goText}
                 seeCode={props.seeCode}
-                seeText={props.seeText}/>
+                seeText={props.seeText}
+                languages="APP DESIGN"/>
             <TopPicsContainer>
                 <MobilePic imgUrl={props.profile}/>
                 <MobilePic imgUrl={props.login}/>

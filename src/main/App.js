@@ -8,7 +8,7 @@ import Resume from "./views/resume/Resume";
 
 export default function App() {
     return (
-        <div style={{width: "100vw", overflow: "hidden"}}>
+        <div style={{width: "100vw", overflowX: "hidden"}}>
             <Navbar/>
             <Switch>
                 <Route exact path="/" component={Projects}/>

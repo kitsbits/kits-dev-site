@@ -12,6 +12,10 @@ export default class Resume extends React.Component {
         this.handleToggle = this.handleToggle.bind(this);
     }
 
+    componentDidMount() {
+        window.scrollTo(0, 0);
+    }
+
     handleToggle(event) {
         if (event.target.nextSibling.style.display === "none") {
             document.getElementById(event.target.nextSibling.id).style.display = "inherit";

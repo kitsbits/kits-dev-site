@@ -19,8 +19,6 @@ export default class Navbar extends React.Component {
             const scrollTopChrome = document.documentElement.scrollTop;
             const scrollTopSafari = document.body.scrollTop;
 
-            console.log(typeof scrollTopChrome, typeof scrollTopSafari)
-
             if ((scrollTopSafari > 100 && scrollTopChrome === 0) || (scrollTopChrome > 100 && scrollTopSafari === 0)) {
                 this.setState({
                     navContainer: "nav-container nav-container-scroll",
