@@ -1,5 +1,5 @@
 
-## Code to my developer portfolio
+## Welcome to my developer portfolio!
 
 If any of this is helpful to your own site, tinker away - go nuts!
 
