@@ -5,6 +5,7 @@ import WebProject from "./WebProject";
 import Overlay from "./Overlay";
 import BuiltWith from "./BuiltWith";
 import BuiltWithFramework from "./BuiltWithFramework"
+import Slider from "./Slider"
 import { ponder, misc } from "../../assets/assets";
 import { projects } from "./details";
 import { Link } from "react-router-dom";
@@ -16,6 +17,8 @@ export default class Projects extends React.Component {
         this.state = {
             projectDetails: projects[props.match.params.id],
             overlayHeight: 0,
+            pictures: projects[props.match.params.id].pictures,
+            frameworks: projects[props.match.params.id].frameworks
         }
     }
 
@@ -24,7 +27,9 @@ export default class Projects extends React.Component {
             this.setState(prevState => {
                 return {
                     ...prevState,
-                    projectDetails: projects[nextProps.match.params.id]
+                    projectDetails: projects[nextProps.match.params.id],
+                    pictures: projects[nextProps.match.params.id].pictures,
+                    frameworks: projects[nextProps.match.params.id].frameworks
                 }
             });
         }
@@ -37,15 +42,6 @@ export default class Projects extends React.Component {
                 overlayHeight: document.getElementById("project").offsetHeight
             }
         });
-    }
-
-    onClick() {
-        let currentProject = Number(this.state.props.match.params.id);
-
-        if (currentProject + 1 >= projects.length) {
-            return 0;
-        }
-        return currentProject += 1;
     }
 
     mapWebProject(pictures) {
@@ -70,7 +66,7 @@ export default class Projects extends React.Component {
                             <div id="project" style={{paddingBottom: "50px"}}>
                                 <Header picture={project.header} polygon={misc.polygon}/>
                                 <div style={{marginTop: "-70px"}}>
-                                    {this.mapWebProject(project.web)}
+                                    {this.mapWebProject(project.pictures)}
                                 </div>
                                     <Overlay height={this.state.overlayHeight}/>
                                 </div>
@@ -83,10 +79,9 @@ export default class Projects extends React.Component {
     }
 
     render() {
-        console.log(this.state.projectDetails);
         return (
             <div>
-                <Link to={Number(this.props.match.params.id) >= projects.length - 1 ? "/projects/0" : `/projects/${Number(this.props.match.params.id) + 1}`} style={{position: "absolute", zIndex: "5"}}><h1>TEST LINK</h1></Link>
+                <Slider id={Number(this.props.match.params.id)} />
                 <div id="project" style={{paddingBottom: "50px"}}>
                     <Header picture={ponder.header} polygon={misc.polygon}/>
                 <div style={{marginTop: "-70px"}}>
