@@ -26,7 +26,7 @@ body {
     width: 100vw;
     height: 200px;
     transition: height 1s;
-    z-index: 2;
+    z-index: 3;
 
 }
 

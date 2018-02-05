@@ -3,7 +3,7 @@ import glamorous from "glamorous";
 import { Switch, Route } from "react-router-dom";
 
 import Navbar from "./views/navbar/Navbar";
-import Projects from "./views/projects/Projects";
+import Projects from "./views/newProjects/Projects";
 import Resume from "./views/resume/Resume";
 
 export default function App() {
