@@ -7,7 +7,7 @@ export default function Slider(props) {
     // STYLES \\
     const Container = glamorous.div({
         position: "absolute",
-        zIndex: "5",
+        zIndex: "4",
         display: "flex",
         justifyContent: "space-around",
         width: "100vw",
