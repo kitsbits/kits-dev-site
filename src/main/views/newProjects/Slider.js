@@ -11,10 +11,15 @@ export default function Slider(props) {
         display: "flex",
         justifyContent: "space-around",
         width: "100vw",
-        top: "300px",
+        top: props.top,
     });
 
     const carets = {
+        color: "white",
+    };
+
+    const links = {
+        textDecoration: "none",
         color: "white",
     }
     /////////////////////////////
@@ -26,8 +31,14 @@ export default function Slider(props) {
 
     return (
         <Container>
-            <Link to={props.id < 1 ? `/projects/${end}/${projects[end].paramsTitle}` : `/projects/${prevId}/${projects[prevId].paramsTitle}`}><i className="fa fa-5x fa-angle-left" style={carets}></i></Link>
-            <Link to={props.id >= end ? `/projects/0/${defaultTitle}` : `/projects/${nextId}/${projects[nextId].paramsTitle}`}><i className="fa fa-5x fa-angle-right" style={carets}></i></Link>
+            <Link to={props.id < 1 ? `/projects/${end}/${projects[end].paramsTitle}` : `/projects/${prevId}/${projects[prevId].paramsTitle}`} style={links} onClick={props.scrollTop} >
+                <i className="fa fa-5x fa-angle-left" style={carets}></i>
+                <p>PREVIOUS</p>
+            </Link>
+            <Link to={props.id >= end ? `/projects/0/${defaultTitle}` : `/projects/${nextId}/${projects[nextId].paramsTitle}`} style={links} onClick={props.scrollTop}>
+                <i className="fa fa-5x fa-angle-right" style={carets}></i>
+                <p>NEXT</p>
+            </Link>
         </Container>
     )
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import Slider from "./Slider";
 import glamorous from "glamorous";
 import { mediaQueries } from "../../styles/global";
 import { misc } from "../../assets/assets"
@@ -66,6 +67,16 @@ export default function Header(props) {
         ":hover": {
             color: "#FF4057"
         },
+    });
+
+    const NextProject = glamorous.div({
+        position: "absolute",
+        top: "250px",
+        right: "100px",
+        height: "100px",
+        width: "100px",
+        // backgroundColor: "red",
+        // zIndex: "100",
     });
 
     return (

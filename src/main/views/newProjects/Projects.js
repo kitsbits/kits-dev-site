@@ -33,8 +33,8 @@ export default class Projects extends React.Component {
         }
     }
 
-    componentDidMount() {
-
+    scrollToTop() {
+        window.scrollTo(0, 0);
     }
 
     mapWebProject(pictures) {
@@ -62,13 +62,14 @@ export default class Projects extends React.Component {
         });
 
         const ProjectContainer = glamorous.div({
-            paddingBottom: "50px",
+            paddingBottom: "175px",
             marginTop: "100px",
             backgroundColor: "rgba(40,33,36,0.82)",
         });
 
         const PicsContainer = glamorous.div({
             marginTop: "-70px",
+            position: "relative",
         });
 
         const MobileContainer = glamorous.div({
@@ -97,7 +98,7 @@ export default class Projects extends React.Component {
         return (
             <PageContainer>
                 <ProjectContainer id="project">
-                    <Slider id={Number(this.props.match.params.id)} />
+                    <Slider id={Number(this.props.match.params.id)} top="280px" scrollTop={this.scrollToTop}/>
                     <Header picture={this.state.project.header} project={this.state.project}/>
                     <PicsContainer>
                         {this.state.project.web ?
@@ -107,6 +108,7 @@ export default class Projects extends React.Component {
                                 {this.mapMobileProject(this.state.pictures)}
                             </MobileContainer>
                         }
+                        <Slider id={Number(this.props.match.params.id)} top="105%" scrollTop={this.scrollToTop}/>
                     </PicsContainer>
                 </ProjectContainer>
                 <BuiltWith>BUILT WITH</BuiltWith>
