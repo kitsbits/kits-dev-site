@@ -10,11 +10,19 @@ export default function Header(props) {
     const Container = glamorous.div({
         background: `url(${props.picture}) no-repeat`,
         backgroundSize: "cover",
-        width: "100%",
+        width: "100vw",
         height: `${height}px`,
         position: "relative",
     });
 
+    const Overlay = glamorous.div({
+        position: "absolute",
+        backgroundColor: "rgba(252,20,90,0.51)",
+        height: `${height}px`,
+        width: "100vw",
+        backgroundSize: "cover",
+        zIndex: "1",
+    });
 
     const Polygon = glamorous.div({
         background: `url(${misc.polygon}) no-repeat`,
@@ -62,6 +70,7 @@ export default function Header(props) {
 
     return (
         <Container>
+            <Overlay />
             <Polygon>
                 <TextContainer>
                     <LinkContainer>

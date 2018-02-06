@@ -30,7 +30,7 @@ Link {
     width: 100vw;
     height: 200px;
     transition: height 1s;
-    z-index: 3;
+    z-index: 6;
 
 }
 
@@ -89,7 +89,7 @@ Link {
     color: white;
     padding: 50px;
     transition: all 1s;
-    z-index: 2;
+    z-index: 5;
     position: relative;
 }
 
@@ -181,6 +181,7 @@ Link {
         top: 85px;
         height: 100px;
         color: white;
+        z-index: 6;
     }
 
     .link-container {
@@ -190,7 +191,7 @@ Link {
         padding-bottom: 25px;
         top: 0;
         background-color: white;
-        z-index: 2;
+        z-index: 6;
         transition: all 0.2s;
     }
 

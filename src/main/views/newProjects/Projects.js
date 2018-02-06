@@ -3,9 +3,7 @@ import glamorous from "glamorous";
 import Header from "./Header";
 import WebProject from "./WebProject";
 import MobileProject from "./MobileProject";
-import Overlay from "./Overlay";
 import BuiltWith from "./BuiltWith";
-import BuiltWithFramework from "./BuiltWithFramework"
 import Slider from "./Slider"
 import { projects } from "./details";
 import { Link } from "react-router-dom";
@@ -16,7 +14,6 @@ export default class Projects extends React.Component {
         super(props);
         this.state = {
             project: projects[props.match.params.id],
-            overlayHeight: projects[props.match.params.id].height + 75,
             pictures: projects[props.match.params.id].pictures,
             frameworks: projects[props.match.params.id].frameworks
         }
@@ -37,6 +34,7 @@ export default class Projects extends React.Component {
     }
 
     componentDidMount() {
+
     }
 
     mapWebProject(pictures) {
@@ -51,29 +49,71 @@ export default class Projects extends React.Component {
         });
     }
 
-    mapBuiltWithFrameworks(project) {
-        return project.map(framework => {
-            return <BuiltWithFramework framework={framework} key={framework} />
+    mapFrameworks(frameworks) {
+        return frameworks.map(framework => {
+            return <BuiltWith framework={framework} key={framework} />
         });
     }
 
     render() {
+        // Container Styles \\
+        const PageContainer = glamorous.div({
+
+        });
+
+        const ProjectContainer = glamorous.div({
+            paddingBottom: "50px",
+            marginTop: "100px",
+            backgroundColor: "rgba(40,33,36,0.82)",
+        });
+
+        const PicsContainer = glamorous.div({
+            marginTop: "-70px",
+        });
+
+        const MobileContainer = glamorous.div({
+            display: "flex",
+            justifyContent: "space-around",
+            flexWrap: "wrap",
+            width: "80%",
+            margin: "auto",
+        });
+
+        const BuiltWith = glamorous.h1({
+            paddingLeft: "25px",
+        });
+
+        const FrameworksContainer = glamorous.div({
+            display: "flex",
+            justifyContent: "space-around",
+            alignItems: "center",
+            flexWrap: "wrap",
+            width: "100%",
+            padding: "50px",
+            backgroundColor: "#F7F7F7",
+        });
+        //////////////////////////////////////////
+
         return (
-            <div>
-                <Slider id={Number(this.props.match.params.id)} />
-                <div id="project" style={{paddingBottom: "50px", marginTop: "100px"}}>
+            <PageContainer>
+                <ProjectContainer id="project">
+                    <Slider id={Number(this.props.match.params.id)} />
                     <Header picture={this.state.project.header} project={this.state.project}/>
-                    <div style={{marginTop: "-70px"}}>
+                    <PicsContainer>
                         {this.state.project.web ?
                             this.mapWebProject(this.state.pictures)
                         :
-                            this.mapMobileProject(this.state.pictures) }
-                    </div>
-                    <Overlay height={this.state.overlayHeight}/>
-                </div>
-                <BuiltWith frameworks={this.mapBuiltWithFrameworks}/>
-            </div>
-
+                            <MobileContainer>
+                                {this.mapMobileProject(this.state.pictures)}
+                            </MobileContainer>
+                        }
+                    </PicsContainer>
+                </ProjectContainer>
+                <BuiltWith>BUILT WITH</BuiltWith>
+                <FrameworksContainer>
+                    {this.mapFrameworks(this.state.frameworks)}
+                </FrameworksContainer>
+            </PageContainer>
         )
     }
 }

@@ -15,7 +15,7 @@ export default function Slider(props) {
     });
 
     const carets = {
-        color: "#fff",
+        color: "white",
     }
     /////////////////////////////
 

@@ -1,35 +1,40 @@
 import React from "react";
 import glamorous from "glamorous";
 import { misc } from "../../assets/assets";
+import { mediaQueries } from "../../styles/global";
 
 export default function WebProject(props) {
     const Container =  glamorous.div({
-        width: "687px",
-        height: "505px",
         position: "relative",
-        margin: "auto auto 70px auto",
         zIndex: "2",
+        margin: "auto auto 70px auto",
     });
 
-    const Backdrop = glamorous.div({
-        background: `url(${misc.web}) no-repeat center`,
-        backgroundSize: "cover",
-        width: "100%",
-        height: "100%",
+    const Backdrop = glamorous.img({
+        position: "relative",
+        width: "50vw",
         opacity: "0.5",
+        left: "50%",
+        transform: "translateX(-50%)",
+        [mediaQueries.small]: {
+            width: "80vw",
+        }
     });
 
     const ProjectPicture = glamorous.img({
-        width: "625px",
-        height: "auto",
+        width: "50vw",
         position: "absolute",
-        top: "140px",
-        left: "-26px",
+        left: "45%",
+        transform: "translateX(-50%)",
+        top: "20%",
+        [mediaQueries.small]: {
+            width: "80vw",
+        }
     });
 
     return (
         <Container>
-            <Backdrop />
+            <Backdrop src={misc.web}/>
             <ProjectPicture src={props.picture} />
         </Container>
 

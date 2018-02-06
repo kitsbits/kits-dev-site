@@ -21,11 +21,11 @@ export default function MobileProject(props) {
     });
 
     const ProjectPicture = glamorous.img({
-        width: "229px",
+        width: "220px",
         height: "auto",
         position: "absolute",
-        top: "40px",
-        left: "6px",
+        top: "57px",
+        left: "10px",
     });
 
     return (
