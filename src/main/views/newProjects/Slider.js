@@ -11,7 +11,7 @@ export default function Slider(props) {
         display: "flex",
         justifyContent: "space-around",
         width: "100vw",
-        top: "250px",
+        top: "300px",
     });
 
     const carets = {
@@ -23,8 +23,6 @@ export default function Slider(props) {
     const nextId = props.id + 1;
     const prevId = props.id - 1;
     const defaultTitle = projects[0].paramsTitle;
-
-    // <Link to={Number(this.props.match.params.id) >= projects.length - 1 ? "/projects/0/ponder" : `/projects/${Number(this.props.match.params.id) + 1}/${projects[Number(this.props.match.params.id) + 1].paramsId}`}
 
     return (
         <Container>

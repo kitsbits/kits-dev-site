@@ -1,10 +1,11 @@
 import React from "react";
 import glamorous from "glamorous";
 import { mediaQueries } from "../../styles/global";
+import { misc } from "../../assets/assets"
 
 export default function Header(props) {
 
-    const height = 725;
+    const height = 700;
 
     const Container = glamorous.div({
         background: `url(${props.picture}) no-repeat`,
@@ -16,7 +17,7 @@ export default function Header(props) {
 
 
     const Polygon = glamorous.div({
-        background: `url(${props.polygon}) no-repeat`,
+        background: `url(${misc.polygon}) no-repeat`,
         backgroundSize: "cover",
         width: "100vw",
         height: "450px",
@@ -64,17 +65,23 @@ export default function Header(props) {
             <Polygon>
                 <TextContainer>
                     <LinkContainer>
-                        <NavLink>
-                            <i className="fa fa-2x fa-bullseye"></i>
-                            go there
-                        </NavLink>
-                        <NavLink>
-                            <i className="fa fa-2x fa-github"></i>
-                            see code
-                        </NavLink>
+                        {props.project.visit ?
+                            (<NavLink href={props.project.visit} target="blank">
+                                <i className="fa fa-2x fa-bullseye"></i>
+                                go there
+                            </NavLink>)
+                        :
+                            null}
+                        {props.project.code ?
+                            (<NavLink href={props.project.code} target="blank">
+                                <i className="fa fa-2x fa-github"></i>
+                                see code
+                            </NavLink>)
+                        :
+                            null}
                     </LinkContainer>
-                    <h1>Ponder Me And You</h1>
-                    <p>Ecommerce site designed and built for a local digital artist</p>
+                    <h1>{props.project.title}</h1>
+                    <p>{props.project.description}</p>
                 </TextContainer>
             </Polygon>
         </Container>
