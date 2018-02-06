@@ -10,6 +10,7 @@ export const projects = [
         frameworks: [logos.sketch, logos.react, logos.glamorous, logos.redux, logos.reactRouter, logos.mongodb, logos.express],
         header: ponder.header,
         web: true,
+        height: 1830,
     },
     {
         title: "Count My URL",
@@ -21,6 +22,7 @@ export const projects = [
         frameworks: [logos.react, logos.glamorous, logos.d3, logos.webpack],
         header: countMy.header,
         web: true,
+        height: 1255,
     },
     {
         title: "DBs Diary",
@@ -32,6 +34,7 @@ export const projects = [
         frameworks: [logos.sketch, logos.react, logos.redux, logos.reactRouter, logos.mongodb, logos.express],
         header: dbsDiary.header,
         web: true,
+        height: 1830,
     },
     {
         title: "Native Weather",
@@ -42,6 +45,7 @@ export const projects = [
         frameworks: [logos.react, logos.redux, logos.mongodb, logos.express],
         header: nativeWeather.header,
         mobile: true,
+        height: 2405,
     },
     {
         title: "Pinglist",
@@ -51,5 +55,6 @@ export const projects = [
         frameworks: [logos.sketch],
         header: pinglist.header,
         mobile: true,
+        height: 2980,
     },
 ]

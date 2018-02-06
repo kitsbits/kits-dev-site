@@ -2,6 +2,7 @@ import React from "react";
 import glamorous from "glamorous";
 import Header from "./Header";
 import WebProject from "./WebProject";
+import MobileProject from "./MobileProject";
 import Overlay from "./Overlay";
 import BuiltWith from "./BuiltWith";
 import BuiltWithFramework from "./BuiltWithFramework"
@@ -15,7 +16,7 @@ export default class Projects extends React.Component {
         super(props);
         this.state = {
             project: projects[props.match.params.id],
-            overlayHeight: 0,
+            overlayHeight: projects[props.match.params.id].height + 75,
             pictures: projects[props.match.params.id].pictures,
             frameworks: projects[props.match.params.id].frameworks
         }
@@ -29,23 +30,24 @@ export default class Projects extends React.Component {
                     project: projects[nextProps.match.params.id],
                     pictures: projects[nextProps.match.params.id].pictures,
                     frameworks: projects[nextProps.match.params.id].frameworks,
+                    overlayHeight: projects[nextProps.match.params.id].height + 75,
                 }
             });
         }
     }
 
     componentDidMount() {
-        this.setState(prevState => {
-            return {
-                ...prevState,
-                overlayHeight: document.getElementById("project").offsetHeight
-            }
-        });
     }
 
     mapWebProject(pictures) {
         return pictures.map(picture => {
             return <WebProject picture={picture} key={picture}/>
+        });
+    }
+
+    mapMobileProject(pictures) {
+        return pictures.map(picture => {
+            return <MobileProject picture={picture} key={picture}/>
         });
     }
 
@@ -62,7 +64,10 @@ export default class Projects extends React.Component {
                 <div id="project" style={{paddingBottom: "50px", marginTop: "100px"}}>
                     <Header picture={this.state.project.header} project={this.state.project}/>
                     <div style={{marginTop: "-70px"}}>
-                        {this.mapWebProject(this.state.pictures)}
+                        {this.state.project.web ?
+                            this.mapWebProject(this.state.pictures)
+                        :
+                            this.mapMobileProject(this.state.pictures) }
                     </div>
                     <Overlay height={this.state.overlayHeight}/>
                 </div>

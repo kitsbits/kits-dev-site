@@ -20,7 +20,7 @@ export default function Header(props) {
         background: `url(${misc.polygon}) no-repeat`,
         backgroundSize: "cover",
         width: "100vw",
-        height: "450px",
+        height: "420px",
         position: "absolute",
         bottom: "0",
         zIndex: "2",
